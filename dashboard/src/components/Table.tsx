@@ -43,19 +43,18 @@ const Table: React.FC<IProps> = (props) => {
             </tr>
           </thead>
           <tbody>
-            {[
-              { data: '2024-09-01', frequenza: 0 },
-              { data: '2024-09-01', frequenza: 1 },
-              { data: '2024-09-01', frequenza: 2 },
-              { data: '2024-09-01', frequenza: 3 },
-              { data: '2024-09-01', frequenza: 4 },
-              { data: '2024-09-01', frequenza: 5 },
-            ].map(({ data, frequenza }, index) => {
+            {sensors.map(({ id, data, frequenza }, index) => {
               return (
                 <tr key={index}>
-                  <td>{index}</td>
+                  <td>{id}</td>
                   <td>{data}</td>
-                  <td>{frequenza}</td>
+                  <td className={`
+                      ${frequenza == 0 && 'font-bold text-green-600'}
+                      ${frequenza >= 150 && frequenza <= 1000 && 'font-bold text-red-600'}
+                      ${frequenza > 1000 && 'text-gray-600 line-through'}
+                  `}>
+                    {frequenza}
+                    </td>
                 </tr>
               )
             })}
