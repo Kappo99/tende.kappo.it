@@ -1,13 +1,7 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
 
-export default function Home() {
-  return (
-    <>
-
-      <Header/>
-
-      <main>
+export default function Main() {
+    return (
+        <main>
         <aside>
           <div className="sidebar-item">Menu 1</div>
           <div className="sidebar-item">Menu 2</div>
@@ -47,9 +41,5 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <Footer text="FOOTER - © 2025" />
-      <Footer />
-    </>
-  );
+    );
 }
