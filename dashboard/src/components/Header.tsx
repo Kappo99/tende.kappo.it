@@ -3,8 +3,8 @@ import Nav from "./Nav";
 
 export default function Header() {
     return(
-        <header className= "flex flex-col items-center justify-center py-5 px-7">
-            <div className="text-3xl">CENTRALINA TENDE</div>
+        <header className= "py-5 px-7 space-y-4">
+            <h1 className="text-3xl text-center">CENTRALINA TENDE</h1>
             <Nav>
                 <div className="flex">
                     <div className="border-2">Data</div>
