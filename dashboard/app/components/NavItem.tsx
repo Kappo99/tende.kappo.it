@@ -4,7 +4,7 @@ interface IProps {
 
 export default function NavItem({children} : IProps) {
     return (
-        <div className="nav-item">
+        <div className="bg-[#0983e2] py-2.5 px-4 rounded-md">
             {children}
         </div>
     );

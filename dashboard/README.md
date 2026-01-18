@@ -1,5 +1,6 @@
 Classe test, prova di parametri {
 
+                                children
     interface IProps {
         text : string
         children : React.ReactNode
@@ -13,6 +14,19 @@ Classe test, prova di parametri {
                 {props.text}
                 {children}
             </div>
+        );
+    }
+
+                                ?
+    interface IProps {
+    text? : string
+    }
+    // il ? serve ad impostare qualosa di default, se non c'è nulla che gli viene passato come parametro allora lo importa come parametro di default
+    export default function Footer(props : IProps) {
+        return (
+            <footer>
+                {props.text ?? "test"}
+            </footer>
         );
     }
 }

@@ -1,11 +1,7 @@
-interface IProps {
-    text? : string
-}
-
-export default function Footer(props : IProps) {
+export default function Footer() {
     return (
         <footer>
-            {props.text ?? "test"}
+            FOOTER - © 2025
         </footer>
     );
 }

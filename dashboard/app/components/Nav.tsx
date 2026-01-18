@@ -4,7 +4,7 @@ interface IProps {
 
 export default function Nav({children} : IProps) {
     return (
-        <nav>
+        <nav className= "flex gap-5">
             {children}
         </nav>
     );
