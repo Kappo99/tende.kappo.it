@@ -1,16 +1,17 @@
 import Aside from "./components/Aside";
 import BottomSection from "./components/BottomSection";
-import Card from "./components/card";
+import Card from "./components/Card";
 import CardContent from "./components/CardContent";
 import CardsContainer from "./components/CardsContainer";
 import CardTitle from "./components/CardTitle";
 import Hero from "./components/Hero";
 import Section from "./components/Section";
 import SidebarItem from "./components/SidebarItem";
+import SmallBox from "./components/SmallBox";
 
 export default function Home() {
   return (
-    <main>
+    <main className= "flex w-full">
 
       <Aside>
         <SidebarItem>Menu 1</SidebarItem>
@@ -38,10 +39,10 @@ export default function Home() {
         </CardsContainer>
 
         <BottomSection>
-          <div className="left-box">Large Box</div>
-          <div className="right-column">
-            <div className="small-box">Small Box 1</div>
-            <div className="small-box">Small Box 2</div>
+          <div className="bg-[#fb78a7] flex flex-2 justify-center items-center p-4 rounded-xl">Large Box</div>
+          <div className="flex flex-col flex-1 gap-5">
+            <SmallBox>Small Box 1</SmallBox>
+            <SmallBox>Small Box 2</SmallBox>
           </div>
         </BottomSection>
       </Section>

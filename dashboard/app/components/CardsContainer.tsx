@@ -4,7 +4,7 @@ interface IProps {
 
 export default function CardsContainer({children} : IProps) {
     return (
-        <div className="cards-container">
+        <div className="flex w-full gap-5">
             {children}
         </div>
     );

@@ -4,7 +4,7 @@ interface IProps {
 
 export default function CardTitle({children} : IProps) {
     return (
-        <div className="card-title">
+        <div className="text-black text-xl flex justify-center items-center mt-6">
             {children}
         </div>
     );

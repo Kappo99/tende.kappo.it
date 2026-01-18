@@ -4,7 +4,7 @@ interface IProps {
 
 export default function Section({children} : IProps) {
     return (
-        <section id="content">
+        <section className= "flex flex-col gap-5 w-full p-5">
             {children}
         </section>
     );

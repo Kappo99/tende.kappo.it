@@ -4,7 +4,7 @@ interface IProps {
 
 export default function BottomSection({children} : IProps) {
     return (
-        <div className="bottom-section">
+        <div className="flex gap-5">
             {children}
         </div>
     );

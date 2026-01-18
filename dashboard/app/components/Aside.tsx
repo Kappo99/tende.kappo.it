@@ -4,7 +4,7 @@ interface IProps {
 
 export default function Aside({children} : IProps) {
     return(
-        <aside>
+        <aside className= "bg-gray-500 flex flex-col w-75 p-5 gap-4">
           {children}
         </aside>
     );
