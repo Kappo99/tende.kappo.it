@@ -11,31 +11,28 @@ import SmallBox from "./components/SmallBox";
 
 export default function Home() {
   return (
-    <main className= "flex w-full">
+    <main className="flex w-full">
 
       <Aside>
-        <SidebarItem>Menu 1</SidebarItem>
-        <SidebarItem>Menu 2</SidebarItem>
-        <SidebarItem>Menu 3</SidebarItem>
-        <SidebarItem>Menu 4</SidebarItem>
+        {["Menu 1", "Menu 2", "Menu 3", "Menu 4"].map((item, index) => (
+          <SidebarItem key={index}>{item}</SidebarItem>
+        ))}
       </Aside>
 
       <Section>
-        <Hero/>
+        <Hero />
 
         <CardsContainer>
-          <Card>
-            <CardTitle>Card 1</CardTitle>
-            <CardContent>Content</CardContent>
-          </Card>
-          <Card>
-            <CardTitle>Card 2</CardTitle>
-            <CardContent>Content</CardContent>
-          </Card>
-          <Card>
-            <CardTitle>Card 3</CardTitle>
-            <CardContent>Content</CardContent>
-          </Card>
+          {[
+            { title: "Card 1", content: "Content" },
+            { title: "Card 2", content: "Content" }, 
+            { title: "Card 3", content: "Content" }
+          ].map((item, index) => (
+            <Card key={index}>
+              <CardTitle>{item.title}</CardTitle>
+              <CardContent>{item.content}</CardContent>
+            </Card>
+          ))}
         </CardsContainer>
 
         <BottomSection>
