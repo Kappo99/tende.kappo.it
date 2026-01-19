@@ -4,7 +4,7 @@ interface IProps {
 
 export default function Nav({children} : IProps) {
     return(
-        <nav className="flex justify-between bg-amber-300 w-full">
+        <nav className="flex justify-between">
             {children}
         </nav>
     );
