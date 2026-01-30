@@ -8,7 +8,7 @@ export default function Home() {
         <div className="flex justify-between">
           <TabsList>
             <TabsTrigger value="vento">SENSORE VENTO</TabsTrigger>
-            <TabsTrigger value="pioggia">SENSORE PIOGGIA</TabsTrigger>
+            <TabsTrigger value="pioggia">SENSORE PIOGGIA</TabsTrigger>ada
             <TabsTrigger value="allarmi">REGISTRO ALLARMI</TabsTrigger>
           </TabsList>
           <div>
