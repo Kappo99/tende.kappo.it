@@ -10,8 +10,12 @@ const columns: ColumnDef<WindSensor>[] = [
   { label: "Frequenza", name: "frequency" },
 ];
 
-export function WindSensorTab() {
-  const { data, isLoading, error } = useWindSensor({ limit: 5, /* minValue: 10 */ });
+type WindSensorTab = {
+  limit : number;
+};
+
+export function WindSensorTab({limit} : WindSensorTab) {
+  const { data, isLoading, error } = useWindSensor({limit /* minValue: 10 */} );
 
   if (isLoading) {
     return (
