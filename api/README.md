@@ -56,9 +56,31 @@ composer install
 
 2. Configura le variabili d'ambiente:
 ```bash
-cp .env.example .env
-# Modifica .env con le tue credenziali database
+# Per sviluppo locale
+cp .env.development.example .env.development
+# Modifica .env.development con le tue credenziali database
+
+# Per produzione
+cp .env.production.example .env.production
+# Modifica .env.production con le credenziali di produzione
 ```
+
+3. Avvia il server di sviluppo:
+```bash
+# Windows
+start-server.bat
+
+# Linux/Mac
+chmod +x start-server.sh
+./start-server.sh
+
+# Oppure manualmente
+php -S localhost:8000 -t public
+```
+
+Il server sarà disponibile su: **http://localhost:8000**
+
+Per maggiori dettagli sul testing, vedi [TESTING.md](TESTING.md)
 
 ## Endpoint Disponibili
 

@@ -1,0 +1,218 @@
+{
+	"info": {
+		"name": "Tende Kappo API",
+		"description": "Collection per testare l'API Tende Kappo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/health",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["api", "health"]
+				}
+			}
+		},
+		{
+			"name": "Wind Sensor - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/wind-sensor?wind-limit=10",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["api", "wind-sensor"],
+					"query": [
+						{
+							"key": "wind-limit",
+							"value": "10"
+						},
+						{
+							"key": "date",
+							"value": "2024-01-31",
+							"disabled": true
+						},
+						{
+							"key": "min-value",
+							"value": "100",
+							"disabled": true
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Wind Sensor - POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"frequency\": [100, 200, 300],\n  \"date\": [\"2024-01-31 10:00:00\", \"2024-01-31 10:01:00\", \"2024-01-31 10:02:00\"]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/wind-sensor",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["api", "wind-sensor"]
+				}
+			}
+		},
+		{
+			"name": "Wind Sensor - Minutes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/wind-sensor/minutes",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["api", "wind-sensor", "minutes"]
+				}
+			}
+		},
+		{
+			"name": "Wind Sensor - Consecutive Values",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/wind-sensor/consecutive-values?date=2024-01-31&cons-value=5&wind-min=150&wind-max=1500",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["api", "wind-sensor", "consecutive-values"],
+					"query": [
+						{
+							"key": "date",
+							"value": "2024-01-31"
+						},
+						{
+							"key": "cons-value",
+							"value": "5"
+						},
+						{
+							"key": "wind-min",
+							"value": "150"
+						},
+						{
+							"key": "wind-max",
+							"value": "1500"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Rain Sensor - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/rain-sensor?rain-limit=10",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["api", "rain-sensor"],
+					"query": [
+						{
+							"key": "rain-limit",
+							"value": "10"
+						},
+						{
+							"key": "date",
+							"value": "2024-01-31",
+							"disabled": true
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Rain Sensor - POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"rain\": [true, false, true],\n  \"date\": [\"2024-01-31 10:00:00\", \"2024-01-31 10:01:00\", \"2024-01-31 10:02:00\"]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/rain-sensor",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["api", "rain-sensor"]
+				}
+			}
+		},
+		{
+			"name": "Alarm Register - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/alarm-register?register-limit=10",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["api", "alarm-register"],
+					"query": [
+						{
+							"key": "register-limit",
+							"value": "10"
+						},
+						{
+							"key": "date",
+							"value": "2024-01-31",
+							"disabled": true
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Alarm Register - POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"idAlarm\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/alarm-register",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8000",
+					"path": ["api", "alarm-register"]
+				}
+			}
+		}
+	]
+}
