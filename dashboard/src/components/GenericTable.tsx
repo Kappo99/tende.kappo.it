@@ -13,6 +13,7 @@ type Accessor<T> = keyof T | ((row: T) => React.ReactNode)
 export type ColumnDef<T> = {
   label: string
   name: Accessor<T>
+  className?: (row: T) => string
 }
 
 type GenericTableProps<T> = {
@@ -21,9 +22,9 @@ type GenericTableProps<T> = {
 }
 
 export function GenericTable<T>({ columns, data }: GenericTableProps<T>) {
-  const resolve = React.useCallback((row: T, accessor: Accessor<T>) => {
-    if (typeof accessor === "function") return accessor(row)
-    return row[accessor] as React.ReactNode
+  const resolve = React.useCallback((row: T, name: Accessor<T>) => {
+    if (typeof name === "function") return name(row)
+    return row[name] as React.ReactNode
   }, [])
 
   return (

@@ -11,7 +11,7 @@ const columns: ColumnDef<WindSensor>[] = [
 ];
 
 export function WindSensorTab() {
-  const { data, isLoading, error } = useWindSensor({ limit: 50 });
+  const { data, isLoading, error } = useWindSensor({ limit: 5, /* minValue: 10 */ });
 
   if (isLoading) {
     return (

@@ -7,11 +7,7 @@ import { AlarmRegister } from "@/lib/api/types";
 const columns: ColumnDef<AlarmRegister>[] = [
   { label: "ID", name: "id" },
   { label: "Data", name: "date" },
-  { label: "Allarme", name: "alarm" },
-  { 
-    label: "Attivo", 
-    name: (row: AlarmRegister) => row.active ? "Sì" : "No" 
-  },
+  { label: "Allarme", name: "alarm", className: (row: AlarmRegister) => row.active ? "text-red-600 font-bold" : ""  },
 ];
 
 export function AlarmRegisterTab() {
