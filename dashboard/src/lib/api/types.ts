@@ -11,15 +11,15 @@ export interface WindSensor {
 
 export interface WindSensorRequestParams {
   date?: string;
-  'wind-limit'?: number;
-  'min-value'?: number;
+  limit?: number;
+  minValue?: number;
 }
 
 export interface WindSensorConsecutiveParams {
   date: string;
-  'cons-value': number;
-  'wind-min': number;
-  'wind-max': number;
+  consValue: number;
+  min: number;
+  max: number;
 }
 
 // Consecutive Value (diverso da WindSensor, ha solo id e date)
@@ -37,7 +37,7 @@ export interface RainSensor {
 
 export interface RainSensorRequestParams {
   date?: string;
-  'rain-limit'?: number;
+  limit?: number;
 }
 
 // Alarm Register Types
@@ -50,7 +50,7 @@ export interface AlarmRegister {
 
 export interface AlarmRegisterRequestParams {
   date?: string;
-  'register-limit'?: number;
+  limit?: number;
 }
 
 // API Response wrapper

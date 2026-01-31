@@ -71,7 +71,7 @@ curl -X GET http://localhost:8000/api/health
 curl -X GET http://localhost:8000/api/wind-sensor
 
 # Con filtri
-curl -X GET "http://localhost:8000/api/wind-sensor?date=2024-01-31&wind-limit=10&min-value=100"
+curl -X GET "http://localhost:8000/api/wind-sensor?date=2024-01-31&limit=10&minValue=100"
 ```
 
 ### Wind Sensor Minutes
@@ -85,7 +85,7 @@ curl -X GET http://localhost:8000/api/wind-sensor/minutes
 curl -X GET http://localhost:8000/api/rain-sensor
 
 # Con filtri
-curl -X GET "http://localhost:8000/api/rain-sensor?date=2024-01-31&rain-limit=10"
+curl -X GET "http://localhost:8000/api/rain-sensor?date=2024-01-31&limit=10"
 ```
 
 ### Alarm Register (GET)
@@ -94,7 +94,7 @@ curl -X GET "http://localhost:8000/api/rain-sensor?date=2024-01-31&rain-limit=10
 curl -X GET http://localhost:8000/api/alarm-register
 
 # Con filtri
-curl -X GET "http://localhost:8000/api/alarm-register?date=2024-01-31&register-limit=10"
+curl -X GET "http://localhost:8000/api/alarm-register?date=2024-01-31&limit=10"
 ```
 
 ### Wind Sensor (POST)
@@ -139,7 +139,7 @@ curl -X POST http://localhost:8000/api/alarm-register \
 Invoke-RestMethod -Uri "http://localhost:8000/api/health" -Method Get
 
 # Wind Sensor
-Invoke-RestMethod -Uri "http://localhost:8000/api/wind-sensor?wind-limit=5" -Method Get
+Invoke-RestMethod -Uri "http://localhost:8000/api/wind-sensor?limit=5" -Method Get
 
 # POST Wind Sensor
 $body = @{

@@ -15,7 +15,7 @@ class WindSensorRequestDto extends BaseDto
         parent::__construct($data);
         
         $this->date = $data['date'] ?? null;
-        $this->minValue = isset($data['min-value']) ? (int)$data['min-value'] : null;
-        $this->limit = isset($data['wind-limit']) ? (int)$data['wind-limit'] : null;
+        $this->minValue = isset($data['minValue']) ? (int)$data['minValue'] : null;
+        $this->limit = isset($data['limit']) ? (int)$data['limit'] : null;
     }
 }

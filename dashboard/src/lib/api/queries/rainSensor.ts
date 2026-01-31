@@ -27,7 +27,7 @@ export function useRainSensor(
       const queryParams = new URLSearchParams();
       
       if (params.date) queryParams.append('date', params.date);
-      if (params['rain-limit']) queryParams.append('rain-limit', params['rain-limit'].toString());
+      if (params.limit) queryParams.append('limit', params.limit.toString());
       
       const url = `${API_ENDPOINTS.RAIN_SENSOR}${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
       const data = await apiClient.get<RainSensor[]>(url);

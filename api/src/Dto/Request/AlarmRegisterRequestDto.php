@@ -14,6 +14,6 @@ class AlarmRegisterRequestDto extends BaseDto
         parent::__construct($data);
         
         $this->date = $data['date'] ?? null;
-        $this->limit = isset($data['register-limit']) ? (int)$data['register-limit'] : null;
+        $this->limit = isset($data['limit']) ? (int)$data['limit'] : null;
     }
 }

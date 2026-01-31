@@ -23,9 +23,9 @@ class WindSensorManager extends BaseManager
     /**
      * Gestisce la logica di business per trovare valori consecutivi
      */
-    public function getConsecutiveValues(string $date, int $consValue, int $windMin, int $windMax): array
+    public function getConsecutiveValues(string $date, int $consValue, int $min, int $max): array
     {
-        return $this->service->findConsecutiveValues($date, $consValue, $windMin, $windMax);
+        return $this->service->findConsecutiveValues($date, $consValue, $min, $max);
     }
 
     /**

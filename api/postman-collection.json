@@ -25,14 +25,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/wind-sensor?wind-limit=10",
+					"raw": "http://localhost:8000/api/wind-sensor?limit=10",
 					"protocol": "http",
 					"host": ["localhost"],
 					"port": "8000",
 					"path": ["api", "wind-sensor"],
 					"query": [
 						{
-							"key": "wind-limit",
+							"key": "limit",
 							"value": "10"
 						},
 						{
@@ -41,7 +41,7 @@
 							"disabled": true
 						},
 						{
-							"key": "min-value",
+							"key": "minValue",
 							"value": "100",
 							"disabled": true
 						}
@@ -92,7 +92,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/wind-sensor/consecutive-values?date=2024-01-31&cons-value=5&wind-min=150&wind-max=1500",
+					"raw": "http://localhost:8000/api/wind-sensor/consecutive-values?date=2024-01-31&consValue=5&min=150&max=1500",
 					"protocol": "http",
 					"host": ["localhost"],
 					"port": "8000",
@@ -103,15 +103,15 @@
 							"value": "2024-01-31"
 						},
 						{
-							"key": "cons-value",
+							"key": "consValue",
 							"value": "5"
 						},
 						{
-							"key": "wind-min",
+							"key": "min",
 							"value": "150"
 						},
 						{
-							"key": "wind-max",
+							"key": "max",
 							"value": "1500"
 						}
 					]
@@ -124,14 +124,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/rain-sensor?rain-limit=10",
+					"raw": "http://localhost:8000/api/rain-sensor?limit=10",
 					"protocol": "http",
 					"host": ["localhost"],
 					"port": "8000",
 					"path": ["api", "rain-sensor"],
 					"query": [
 						{
-							"key": "rain-limit",
+							"key": "limit",
 							"value": "10"
 						},
 						{
@@ -172,14 +172,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/alarm-register?register-limit=10",
+					"raw": "http://localhost:8000/api/alarm-register?limit=10",
 					"protocol": "http",
 					"host": ["localhost"],
 					"port": "8000",
 					"path": ["api", "alarm-register"],
 					"query": [
 						{
-							"key": "register-limit",
+							"key": "limit",
 							"value": "10"
 						},
 						{

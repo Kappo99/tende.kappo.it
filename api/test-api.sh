@@ -13,17 +13,17 @@ echo ""
 echo ""
 
 echo "[2/5] Test Wind Sensor (GET)..."
-curl -X GET "$BASE_URL/api/wind-sensor?wind-limit=5" -H "Content-Type: application/json"
+curl -X GET "$BASE_URL/api/wind-sensor?limit=5" -H "Content-Type: application/json"
 echo ""
 echo ""
 
 echo "[3/5] Test Rain Sensor (GET)..."
-curl -X GET "$BASE_URL/api/rain-sensor?rain-limit=5" -H "Content-Type: application/json"
+curl -X GET "$BASE_URL/api/rain-sensor?limit=5" -H "Content-Type: application/json"
 echo ""
 echo ""
 
 echo "[4/5] Test Alarm Register (GET)..."
-curl -X GET "$BASE_URL/api/alarm-register?register-limit=5" -H "Content-Type: application/json"
+curl -X GET "$BASE_URL/api/alarm-register?limit=5" -H "Content-Type: application/json"
 echo ""
 echo ""
 

@@ -38,7 +38,7 @@ Per produzione, imposta l'URL del backend reale.
 import { useWindSensor } from '@/lib/api/queries/windSensor';
 
 export function MyComponent() {
-  const { data, isLoading, error } = useWindSensor({ 'wind-limit': 10 });
+  const { data, isLoading, error } = useWindSensor({ limit: 10 });
 
   if (isLoading) return <div>Caricamento...</div>;
   if (error) return <div>Errore: {error.message}</div>;
@@ -52,8 +52,8 @@ export function MyComponent() {
 ```tsx
 const { data } = useWindSensor({
   date: '2024-01-31',
-  'wind-limit': 50,
-  'min-value': 100
+  limit: 50,
+  minValue: 100
 });
 ```
 

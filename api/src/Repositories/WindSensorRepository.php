@@ -48,7 +48,7 @@ class WindSensorRepository extends BaseRepository
     /**
      * Trova valori consecutivi per una data specifica
      */
-    public function findConsecutiveValues(string $date, int $consValue, int $windMin, int $windMax): array
+    public function findConsecutiveValues(string $date, int $consValue, int $min, int $max): array
     {
         $sql = "SELECT id, date, frequency FROM `{$this->tableName}` WHERE date LIKE ? ORDER BY date DESC";
         $params = [$date . '%'];
@@ -61,8 +61,8 @@ class WindSensorRepository extends BaseRepository
         foreach ($results as $row) {
             $frequency = (int)$row['frequency'];
             
-            if ($frequency < $windMax) {
-                if ($frequency >= $windMin) {
+            if ($frequency < $max) {
+                if ($frequency >= $min) {
                     $consecutiveCount++;
                     if ($consecutiveCount == $consValue) {
                         $consecutiveResults[] = [

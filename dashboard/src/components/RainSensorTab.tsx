@@ -14,7 +14,7 @@ const columns: ColumnDef<RainSensor>[] = [
 ];
 
 export function RainSensorTab() {
-  const { data, isLoading, error } = useRainSensor({ 'rain-limit': 50 });
+  const { data, isLoading, error } = useRainSensor({ limit: 50 });
 
   if (isLoading) {
     return (

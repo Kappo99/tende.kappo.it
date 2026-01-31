@@ -29,8 +29,8 @@ export function useWindSensor(
       const queryParams = new URLSearchParams();
       
       if (params.date) queryParams.append('date', params.date);
-      if (params['wind-limit']) queryParams.append('wind-limit', params['wind-limit'].toString());
-      if (params['min-value']) queryParams.append('min-value', params['min-value'].toString());
+      if (params.limit) queryParams.append('limit', params.limit.toString());
+      if (params.minValue) queryParams.append('minValue', params.minValue.toString());
       
       const url = `${API_ENDPOINTS.WIND_SENSOR}${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
       const data = await apiClient.get<WindSensor[]>(url);
@@ -56,9 +56,9 @@ export function useWindSensorConsecutive(
     queryFn: async () => {
       const queryParams = new URLSearchParams();
       queryParams.append('date', params.date);
-      queryParams.append('cons-value', params['cons-value'].toString());
-      queryParams.append('wind-min', params['wind-min'].toString());
-      queryParams.append('wind-max', params['wind-max'].toString());
+      queryParams.append('consValue', params.consValue.toString());
+      queryParams.append('min', params.min.toString());
+      queryParams.append('max', params.max.toString());
       
       const url = `${API_ENDPOINTS.WIND_SENSOR_CONSECUTIVE}?${queryParams.toString()}`;
       const data = await apiClient.get<ConsecutiveValue[]>(url);
@@ -66,7 +66,7 @@ export function useWindSensorConsecutive(
       // Validazione con Zod
       return consecutiveValueArraySchema.parse(data);
     },
-    enabled: !!params.date && !!params['cons-value'], // Esegui solo se i parametri obbligatori sono presenti
+    enabled: !!params.date && !!params.consValue, // Esegui solo se i parametri obbligatori sono presenti
     staleTime: 30000,
     gcTime: 5 * 60 * 1000,
     ...options,

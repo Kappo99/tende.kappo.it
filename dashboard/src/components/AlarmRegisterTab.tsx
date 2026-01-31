@@ -15,7 +15,7 @@ const columns: ColumnDef<AlarmRegister>[] = [
 ];
 
 export function AlarmRegisterTab() {
-  const { data, isLoading, error } = useAlarmRegister({ 'register-limit': 50 });
+  const { data, isLoading, error } = useAlarmRegister({ limit: 50 });
 
   if (isLoading) {
     return (

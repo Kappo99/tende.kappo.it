@@ -27,7 +27,7 @@ export function useAlarmRegister(
       const queryParams = new URLSearchParams();
       
       if (params.date) queryParams.append('date', params.date);
-      if (params['register-limit']) queryParams.append('register-limit', params['register-limit'].toString());
+      if (params.limit) queryParams.append('limit', params.limit.toString());
       
       const url = `${API_ENDPOINTS.ALARM_REGISTER}${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
       const data = await apiClient.get<AlarmRegister[]>(url);

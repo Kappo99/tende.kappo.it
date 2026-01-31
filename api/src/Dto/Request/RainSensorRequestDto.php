@@ -14,6 +14,6 @@ class RainSensorRequestDto extends BaseDto
         parent::__construct($data);
         
         $this->date = $data['date'] ?? null;
-        $this->limit = isset($data['rain-limit']) ? (int)$data['rain-limit'] : null;
+        $this->limit = isset($data['limit']) ? (int)$data['limit'] : null;
     }
 }

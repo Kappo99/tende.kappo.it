@@ -86,20 +86,20 @@ Per maggiori dettagli sul testing, vedi [TESTING.md](TESTING.md)
 
 ### Sensore Vento
 - `GET /api/wind-sensor` - Recupera i dati del sensore vento
-  - Query params: `date`, `min-value`, `wind-limit`
+  - Query params: `date`, `minValue`, `limit`
   
 - `POST /api/wind-sensor` - Inserisce dati del sensore vento
   - Body: `{ "frequency": [100, 200, 300], "date": ["2024-01-31 10:00:00", "2024-01-31 10:01:00", "2024-01-31 10:02:00"] }`
   - Supporta anche array JSON come stringhe: `{ "frequency": "[100,200,300]", "date": "[\"2024-01-31 10:00:00\",\"2024-01-31 10:01:00\"]" }`
   
 - `GET /api/wind-sensor/consecutive-values` - Recupera valori consecutivi
-  - Query params: `date`, `cons-value`, `wind-min`, `wind-max`
+  - Query params: `date`, `consValue`, `min`, `max`
   
 - `GET /api/wind-sensor/minutes` - Calcola i minuti dall'ultimo record inserito
 
 ### Sensore Pioggia
 - `GET /api/rain-sensor` - Recupera i dati del sensore pioggia
-  - Query params: `date`, `rain-limit`
+  - Query params: `date`, `limit`
   
 - `POST /api/rain-sensor` - Inserisce dati del sensore pioggia
   - Body: `{ "rain": [true, false, true], "date": ["2024-01-31 10:00:00", "2024-01-31 10:01:00", "2024-01-31 10:02:00"] }`
@@ -107,7 +107,7 @@ Per maggiori dettagli sul testing, vedi [TESTING.md](TESTING.md)
 
 ### Registro Allarmi
 - `GET /api/alarm-register` - Recupera il registro allarmi
-  - Query params: `date`, `register-limit`
+  - Query params: `date`, `limit`
   
 - `POST /api/alarm-register` - Inserisce un nuovo allarme
   - Body: `{ "idAlarm": 1 }`
@@ -121,17 +121,17 @@ Per maggiori dettagli sul testing, vedi [TESTING.md](TESTING.md)
 
 ### Recuperare dati vento per una data specifica
 ```
-GET /api/wind-sensor?date=2024-01-31&wind-limit=50
+GET /api/wind-sensor?date=2024-01-31&limit=50
 ```
 
 ### Recuperare valori consecutivi
 ```
-GET /api/wind-sensor/consecutive-values?date=2024-01-31&cons-value=5&wind-min=150&wind-max=1500
+GET /api/wind-sensor/consecutive-values?date=2024-01-31&consValue=5&min=150&max=1500
 ```
 
 ### Recuperare dati pioggia
 ```
-GET /api/rain-sensor?date=2024-01-31&rain-limit=100
+GET /api/rain-sensor?date=2024-01-31&limit=100
 ```
 
 ### Inserire dati vento

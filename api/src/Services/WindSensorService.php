@@ -23,9 +23,9 @@ class WindSensorService extends BaseService
     /**
      * Trova valori consecutivi
      */
-    public function findConsecutiveValues(string $date, int $consValue, int $windMin, int $windMax): array
+    public function findConsecutiveValues(string $date, int $consValue, int $min, int $max): array
     {
-        return $this->repository->findConsecutiveValues($date, $consValue, $windMin, $windMax);
+        return $this->repository->findConsecutiveValues($date, $consValue, $min, $max);
     }
 
     /**

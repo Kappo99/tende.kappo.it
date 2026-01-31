@@ -52,15 +52,15 @@ class WindSensorController extends BaseController
             $requestDto = new ConsecutiveValuesRequestDto($queryParams);
 
             if ($requestDto->consValue === null || $requestDto->consValue <= 0) {
-                return $this->error($response, 'Il parametro cons-value è obbligatorio e deve essere maggiore di 0', 400);
+                return $this->error($response, 'Il parametro consValue è obbligatorio e deve essere maggiore di 0', 400);
             }
 
             $date = $requestDto->date ?? date('Y-m-d');
             $results = $this->manager->getConsecutiveValues(
                 $date,
                 $requestDto->consValue,
-                $requestDto->windMin,
-                $requestDto->windMax
+                $requestDto->min,
+                $requestDto->max
             );
 
             $responseDtos = ConsecutiveValueResponseDto::fromArray($results);
