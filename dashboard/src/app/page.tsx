@@ -1,34 +1,10 @@
-import { ColumnDef, GenericTable } from "@/components/GenericTable";
+'use client';
+
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-type InvoiceRow = {
-  id: number
-  date: string
-  value: number
-}
-
-const columns: ColumnDef<InvoiceRow>[] = [
-  { label: "ID", name: "id" },
-  { label: "Data", name: "date" },
-  { label: "Valore", name: "value" },
-]
-
-const data: InvoiceRow[] = [
-  { id: 1, date: "data", value: 250 },
-  { id: 1, date: "data", value: 250 },
-  { id: 1, date: "data", value: 250 },
-  { id: 1, date: "data", value: 250 },
-  { id: 1, date: "data", value: 250 },
-  { id: 1, date: "data", value: 250 },
-  { id: 1, date: "data", value: 250 },
-  { id: 1, date: "data", value: 250 },
-  { id: 1, date: "data", value: 250 },
-  { id: 1, date: "data", value: 250 },
-  { id: 1, date: "data", value: 250 },
-  { id: 1, date: "data", value: 250 },
-  { id: 1, date: "data", value: 250 },
-]
+import { WindSensorTab } from "@/components/WindSensorTab";
+import { RainSensorTab } from "@/components/RainSensorTab";
+import { AlarmRegisterTab } from "@/components/AlarmRegisterTab";
 
 export default function Home() {
   return (
@@ -41,14 +17,18 @@ export default function Home() {
             <TabsTrigger value="allarmi">REGISTRO ALLARMI</TabsTrigger>
           </TabsList>
           <div>
-            <Input />
+            <Input placeholder="Filtra per data..." />
           </div>
         </div>
         <TabsContent value="vento">
-          <GenericTable columns={columns} data={data} />
+          <WindSensorTab />
         </TabsContent>
-        <TabsContent value="pioggia">Change your password here.</TabsContent>
-        <TabsContent value="allarmi">allarmi</TabsContent>
+        <TabsContent value="pioggia">
+          <RainSensorTab />
+        </TabsContent>
+        <TabsContent value="allarmi">
+          <AlarmRegisterTab />
+        </TabsContent>
       </Tabs>
     </main>
   );

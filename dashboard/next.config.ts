@@ -8,10 +8,6 @@ const nextConfig: NextConfig = {
   distDir: 'dist',
   trailingSlash: true,
   reactStrictMode: true,
-  webpack: (config) => {
-    config.optimization.minimize = false;
-    return config;
-  },
 };
 
 export default nextConfig;
