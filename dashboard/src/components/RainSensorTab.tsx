@@ -13,8 +13,12 @@ const columns: ColumnDef<RainSensor>[] = [
   },
 ];
 
-export function RainSensorTab() {
-  const { data, isLoading, error } = useRainSensor({ limit: 50 });
+type RainSensorTab = {
+  limit : number;
+}
+
+export function RainSensorTab({limit} : RainSensorTab) {
+  const { data, isLoading, error } = useRainSensor({ limit });
 
   if (isLoading) {
     return (

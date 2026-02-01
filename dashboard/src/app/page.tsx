@@ -29,10 +29,10 @@ export default function Home() {
           <WindSensorTab limit={limit}/>
         </TabsContent>
         <TabsContent value="pioggia">
-          <RainSensorTab />
+          <RainSensorTab limit={limit}/>
         </TabsContent>
         <TabsContent value="allarmi">
-          <AlarmRegisterTab />
+          <AlarmRegisterTab limit={limit}/>
         </TabsContent>
       </Tabs>
     </main>

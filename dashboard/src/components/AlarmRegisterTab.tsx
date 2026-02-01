@@ -10,8 +10,12 @@ const columns: ColumnDef<AlarmRegister>[] = [
   { label: "Allarme", name: "alarm", className: (row: AlarmRegister) => row.active ? "text-red-600 font-bold" : ""  },
 ];
 
-export function AlarmRegisterTab() {
-  const { data, isLoading, error } = useAlarmRegister({ limit: 50 });
+type AlarmRegisterTab = {
+  limit : number;
+}
+
+export function AlarmRegisterTab({limit} : AlarmRegisterTab) {
+  const { data, isLoading, error } = useAlarmRegister({ limit});
 
   if (isLoading) {
     return (
