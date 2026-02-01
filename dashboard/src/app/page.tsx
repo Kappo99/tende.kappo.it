@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { WindSensorTab } from "@/components/WindSensorTab";
 import { RainSensorTab } from "@/components/RainSensorTab";
 import { AlarmRegisterTab } from "@/components/AlarmRegisterTab";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
 
@@ -22,7 +22,7 @@ export default function Home() {
           </TabsList>
           <div className="flex ">
             <span className="flex items-center border border-black rounded-l-lg h-full px-2 ">righe</span>
-            <Input className="rounded-l-none" type="number" min={0} value={limit} onChange={(e) => setLimit(Number(e.currentTarget.value))}/>
+            <Input className="rounded-l-none" type="number" value={limit} onChange={(e) => setLimit(Number(e.currentTarget.value) > 0 ? Number(e.currentTarget.value) : 1)}/>
           </div>
         </div>
         <TabsContent value="vento">
