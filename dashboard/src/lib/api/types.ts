@@ -7,6 +7,7 @@ export interface WindSensor {
   id: number;
   date: string;
   frequency: number;
+  _placeholder?: boolean;
 }
 
 export interface WindSensorRequestParams {

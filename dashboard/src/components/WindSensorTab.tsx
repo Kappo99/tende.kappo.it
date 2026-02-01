@@ -3,11 +3,12 @@
 import { ColumnDef, GenericTable } from "@/components/GenericTable";
 import { useWindSensor } from "@/lib/api/queries/windSensor";
 import { WindSensor } from "@/lib/api/types";
+import { compressZeros } from "@/utils/functions";
 
 const columns: ColumnDef<WindSensor>[] = [
-  { label: "ID", name: "id" },
-  { label: "Data", name: "date" },
-  { label: "Frequenza", name: "frequency" },
+  { label: "ID", name: (r) => r._placeholder ? "..." : r.id },
+  { label: "Data", name: (r) => r._placeholder ? "..." : r.date },
+  { label: "Frequenza", name: (r) => r._placeholder ? "..." : r.frequency },
 ];
 
 type WindSensorTab = {
@@ -16,6 +17,8 @@ type WindSensorTab = {
 
 export function WindSensorTab({limit} : WindSensorTab) {
   const { data, isLoading, error } = useWindSensor({limit /* minValue: 10 */} );
+
+  const dataCompressed = compressZeros(data || []);
 
   if (isLoading) {
     return (
@@ -33,5 +36,5 @@ export function WindSensorTab({limit} : WindSensorTab) {
     );
   }
 
-  return <GenericTable columns={columns} data={data || []} />;
+  return <GenericTable columns={columns} data={dataCompressed || []} />;
 }
