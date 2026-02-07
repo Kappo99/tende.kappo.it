@@ -6,35 +6,28 @@ import { RainSensor } from "@/lib/api/types";
 
 type RainRow = RainSensor & { _placeholder?: boolean };
 
-function compressNoRuns(rows: RainSensor[]): RainRow[] {
+function compressRainRuns(rows: RainSensor[]): RainRow[] {
   const out: RainRow[] = [];
   let i = 0;
 
   while (i < rows.length) {
-    const r = rows[i];
+    const current = rows[i];
+    const currentValue = current.rain;
 
-    // Se è "Sì" (piove), non comprimo
-    if (r.rain) {
-      out.push(r);
-      i++;
-      continue;
-    }
-
-    // Run consecutiva di "No"
+    // trova la run consecutiva (Sì o No)
     let j = i;
-    while (j < rows.length && rows[j].rain === false) j++;
+    while (j < rows.length && rows[j].rain === currentValue) j++;
 
     const runLen = j - i;
 
-    // ✅ Se la run è 1 o 2, NON ha senso inserire "..."
-    // perché non ci sono righe "intermedie" da nascondere.
+    // se run corta (1 o 2), non comprimere
     if (runLen <= 2) {
       for (let k = i; k < j; k++) out.push(rows[k]);
       i = j;
       continue;
     }
 
-    // ✅ runLen >= 3: prima, "...", ultima
+    // run lunga (>=3): prima, "...", ultima
     const first = rows[i];
     const last = rows[j - 1];
 
@@ -67,7 +60,10 @@ const columns: ColumnDef<RainRow>[] = [
   },
   {
     label: "Pioggia",
-    name: (r) => (r._placeholder ? "..." : (r.rain ? "Sì" : "No")),
+    name: (r) => {
+      if (r._placeholder) return "...";
+      return r.rain ? "Sì" : "No";
+    },
     className: (r) => {
       if (r._placeholder) return "text-muted-foreground";
       return r.rain ? "text-destructive" : "";
@@ -85,7 +81,9 @@ export function RainSensorTab({ limit }: RainSensorTabProps) {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-8">
-        <p className="text-muted-foreground">Caricamento dati sensore pioggia...</p>
+        <p className="text-muted-foreground">
+          Caricamento dati sensore pioggia...
+        </p>
       </div>
     );
   }
@@ -93,12 +91,14 @@ export function RainSensorTab({ limit }: RainSensorTabProps) {
   if (error) {
     return (
       <div className="flex items-center justify-center py-8">
-        <p className="text-destructive">Errore nel caricamento: {error.message}</p>
+        <p className="text-destructive">
+          Errore nel caricamento: {error.message}
+        </p>
       </div>
     );
   }
 
-  const compact = compressNoRuns(data || []);
+  const compact = compressRainRuns(data || []);
 
   return <GenericTable columns={columns} data={compact} />;
 }
