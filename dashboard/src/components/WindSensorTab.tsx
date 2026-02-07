@@ -8,15 +8,29 @@ import { compressZeros } from "@/utils/functions";
 const columns: ColumnDef<WindSensor>[] = [
   { label: "ID", name: (r) => r._placeholder ? "..." : r.id },
   { label: "Data", name: (r) => r._placeholder ? "..." : r.date },
-  { label: "Frequenza", name: (r) => r._placeholder ? "..." : r.frequency },
+  {
+    label: "Frequenza",
+    name: (r) => (r._placeholder ? "..." : r.frequency),
+    className: (r) => {
+      // Placeholder (riga "...") sempre grigia
+      if ((r as any)._placeholder) return "text-muted-foreground";
+
+      // Priorità: >1500 grigio, altrimenti >0 rosso
+      const freq = (r as any).frequency as number | undefined;
+      if (typeof freq === "number" && freq > 1500) return "text-muted-foreground";
+      if (typeof freq === "number" && freq > 0) return "text-destructive";
+
+      return "";
+    },
+  },
 ];
 
 type WindSensorTab = {
-  limit : number;
+  limit: number;
 };
 
-export function WindSensorTab({limit} : WindSensorTab) {
-  const { data, isLoading, error } = useWindSensor({limit /* minValue: 10 */} );
+export function WindSensorTab({ limit }: WindSensorTab) {
+  const { data, isLoading, error } = useWindSensor({ limit /* minValue: 10 */ });
 
   const dataCompressed = compressZeros(data || []);
 

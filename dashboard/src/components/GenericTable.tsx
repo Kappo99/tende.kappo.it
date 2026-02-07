@@ -51,7 +51,12 @@ export function GenericTable<T>({ columns, data }: GenericTableProps<T>) {
           data.map((row, rowIndex) => (
             <TableRow key={rowIndex}>
               {columns.map((col, colIndex) => (
-                <TableCell key={colIndex}>{resolve(row, col.name)}</TableCell>
+                <TableCell
+                  key={colIndex}
+                  className={col.className ? col.className(row) : undefined}
+                >
+                  {resolve(row, col.name)}
+                </TableCell>
               ))}
             </TableRow>
           ))
